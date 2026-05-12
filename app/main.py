@@ -1,5 +1,10 @@
 from fastapi import FastAPI, UploadFile, File, Request
-from fastapi.responses import HTMLResponse, FileResponse
+
+from fastapi.responses import (
+    HTMLResponse,
+    StreamingResponse
+)
+
 from fastapi.templating import Jinja2Templates
 
 from typing import List
@@ -12,7 +17,9 @@ from app.predict import classify_and_organize
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="app/templates")
+templates = Jinja2Templates(
+    directory="app/templates"
+)
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -33,11 +40,20 @@ async def upload_images(
 
     base_dir = f"/tmp/{session_id}"
 
-    upload_dir = os.path.join(base_dir, "uploads")
+    upload_dir = os.path.join(
+        base_dir,
+        "uploads"
+    )
 
-    output_dir = os.path.join(base_dir, "classified")
+    output_dir = os.path.join(
+        base_dir,
+        "classified"
+    )
 
-    os.makedirs(upload_dir, exist_ok=True)
+    os.makedirs(
+        upload_dir,
+        exist_ok=True
+    )
 
     saved_files = []
 
@@ -50,7 +66,10 @@ async def upload_images(
 
         with open(file_path, "wb") as buffer:
 
-            shutil.copyfileobj(file.file, buffer)
+            shutil.copyfileobj(
+                file.file,
+                buffer
+            )
 
         saved_files.append(file_path)
 
@@ -65,8 +84,16 @@ async def upload_images(
         output_dir
     )
 
-    return FileResponse(
+    zip_file = open(
         zip_path,
-        media_type='application/zip',
-        filename="classified_images.zip"
+        "rb"
+    )
+
+    return StreamingResponse(
+        zip_file,
+        media_type="application/zip",
+        headers={
+            "Content-Disposition":
+            "attachment; filename=classified_images.zip"
+        }
     )
