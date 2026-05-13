@@ -27,531 +27,618 @@
         }
 
         body {
-
             font-family: 'Inter', sans-serif;
-
-            background: #0f172a;
-
-            color: #f8fafc;
-
+            background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 25%),
+                        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.18), transparent 20%),
+                        #050816;
+            color: #e2e8f0;
             min-height: 100vh;
-
             display: flex;
-
             justify-content: center;
-
-            align-items: center;
-
             padding: 30px;
         }
 
-        .container {
-
+        .page-shell {
             width: 100%;
-
-            max-width: 1100px;
-
-            background: #111827;
-
-            border-radius: 24px;
-
-            padding: 40px;
-
-            box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-
-            border: 1px solid rgba(255,255,255,0.08);
+            max-width: 1240px;
         }
 
-        .header {
-
-            text-align: center;
-
-            margin-bottom: 35px;
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 28px;
+            padding: 0 12px;
         }
 
-        .header h1 {
-
-            font-size: 42px;
-
-            font-weight: 700;
-
-            margin-bottom: 12px;
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .header p {
+        .brand-title {
+            font-size: 44px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #ffffff;
+        }
 
+        .brand-subtitle {
+            font-size: 16px;
             color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+        }
 
-            font-size: 17px;
+        .topbar-copy {
+            text-align: right;
+            max-width: 540px;
+        }
 
-            line-height: 1.6;
+        .topbar-copy h1 {
+            font-size: 28px;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            color: #f8fafc;
+        }
+
+        .topbar-copy p {
+            color: #cbd5e1;
+            line-height: 1.75;
+            max-width: 520px;
+        }
+
+        .panel {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 28px;
+        }
+
+        .hero-card,
+        .upload-card {
+            background: rgba(15, 23, 42, 0.86);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            border-radius: 32px;
+            padding: 34px;
+            box-shadow: 0 32px 100px rgba(15, 23, 42, 0.25);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -30%;
+            width: 320px;
+            height: 320px;
+            background: rgba(59, 130, 246, 0.16);
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        .hero-copy {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.14);
+            color: #93c5fd;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 44px;
+            line-height: 1.05;
+            margin-bottom: 22px;
+            color: #ffffff;
+        }
+
+        .hero-text {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            max-width: 540px;
+        }
+
+        .features {
+            display: grid;
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #e2e8f0;
+            font-size: 15px;
+        }
+
+        .feature-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #60a5fa, #2563eb);
+            box-shadow: 0 0 18px rgba(59, 130, 246, 0.28);
+            flex-shrink: 0;
+        }
+
+        .hero-visual {
+            margin-top: 24px;
+            position: relative;
+            min-height: 260px;
+            border-radius: 26px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.72));
+            border: 1px solid rgba(148, 163, 184, 0.08);
+            padding: 24px;
+            overflow: hidden;
+        }
+
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top center, rgba(96, 165, 250, 0.18), transparent 35%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: rgba(30, 41, 59, 0.9);
+            color: #93c5fd;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.18);
+        }
+
+        .hero-screenshot {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-height: 160px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            display: grid;
+            place-items: center;
+            color: #cbd5e1;
+            font-size: 14px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .hero-screenshot strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .upload-card {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .upload-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .upload-header h2 {
+            font-size: 26px;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+
+        .upload-header p {
+            color: #94a3b8;
+            font-size: 15px;
+            max-width: 390px;
+            line-height: 1.7;
         }
 
         .upload-box {
-
-            border: 2px dashed #3b82f6;
-
-            border-radius: 20px;
-
-            padding: 55px;
-
+            border: 1px dashed rgba(148, 163, 184, 0.32);
+            border-radius: 28px;
+            padding: 42px 28px;
             text-align: center;
-
-            background: rgba(59,130,246,0.08);
-
-            transition: 0.3s ease;
-
+            background: rgba(148, 163, 184, 0.06);
+            transition: all 0.25s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
         .upload-box:hover {
-
-            background: rgba(59,130,246,0.14);
-
-            transform: translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.7);
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-1px);
         }
 
         .upload-box.dragover {
-
-            background: rgba(59,130,246,0.2);
-
             border-color: #60a5fa;
+            background: rgba(59, 130, 246, 0.18);
         }
 
         .upload-icon {
-
-            font-size: 65px;
-
-            margin-bottom: 18px;
+            font-size: 52px;
+            margin-bottom: 20px;
         }
 
         .upload-title {
-
-            font-size: 30px;
-
+            font-size: 28px;
             font-weight: 700;
-
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: #ffffff;
         }
 
         .upload-subtitle {
-
-            color: #94a3b8;
-
-            font-size: 16px;
+            color: #cbd5e1;
+            font-size: 15px;
         }
 
         input[type="file"] {
-
             display: none;
         }
 
         .preview-section {
-
-            margin-top: 40px;
-        }
-
-        .preview-title {
-
-            margin-bottom: 20px;
-
-            font-size: 22px;
-
-            font-weight: 600;
-        }
-
-        .preview-grid {
-
             display: grid;
-
-            grid-template-columns:
-                repeat(auto-fill, minmax(170px, 1fr));
-
             gap: 18px;
         }
 
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .preview-header h2 {
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        .preview-header p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .preview-count {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 999px;
+            padding: 10px 16px;
+            border: 1px solid rgba(148, 163, 184, 0.12);
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
         .preview-card {
-
-            background: #1e293b;
-
-            border-radius: 16px;
-
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 20px;
             overflow: hidden;
-
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(148, 163, 184, 0.14);
+            min-height: 180px;
         }
 
         .preview-card img {
-
             width: 100%;
-
-            height: 150px;
-
+            height: 140px;
             object-fit: cover;
-
             display: block;
         }
 
         .preview-name {
-
             padding: 12px;
-
             font-size: 13px;
-
             color: #cbd5e1;
-
             white-space: nowrap;
-
             overflow: hidden;
-
             text-overflow: ellipsis;
         }
 
         .actions {
-
-            margin-top: 40px;
-
             display: flex;
-
-            justify-content: center;
+            justify-content: flex-end;
         }
 
         .upload-btn {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #2563eb,
-                    #3b82f6
-                );
-
-            color: white;
-
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: #ffffff;
             border: none;
-
-            padding: 18px 40px;
-
-            border-radius: 14px;
-
-            font-size: 17px;
-
-            font-weight: 600;
-
+            padding: 18px 42px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-
-            transition: 0.3s ease;
-
-            box-shadow:
-                0 10px 25px rgba(37,99,235,0.35);
+            transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 18px 38px rgba(37, 99, 235, 0.22);
         }
 
-        .upload-btn:hover {
-
+        .upload-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-
-            opacity: 0.95;
+            box-shadow: 0 22px 48px rgba(37, 99, 235, 0.28);
         }
 
         .upload-btn:disabled {
-
-            opacity: 0.5;
-
+            opacity: 0.55;
             cursor: not-allowed;
+            box-shadow: none;
         }
 
         .loading {
-
-            margin-top: 30px;
-
-            text-align: center;
-
             display: none;
+            margin-top: 10px;
+            text-align: center;
+            padding: 18px 16px;
+            border-radius: 18px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.12);
         }
 
         .spinner {
-
-            width: 55px;
-
-            height: 55px;
-
-            border:
-                5px solid rgba(255,255,255,0.15);
-
-            border-top-color: #3b82f6;
-
+            width: 56px;
+            height: 56px;
+            border: 5px solid rgba(255, 255, 255, 0.14);
+            border-top-color: #60a5fa;
             border-radius: 50%;
-
             animation: spin 1s linear infinite;
+            margin: 0 auto 14px;
+        }
 
-            margin: 0 auto 15px;
+        .loading div:last-child {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.65;
         }
 
         @keyframes spin {
-
             to {
                 transform: rotate(360deg);
             }
         }
 
-        .footer-text {
-
-            margin-top: 18px;
-
-            color: #94a3b8;
-
-            font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
-
-            .container {
-                padding: 25px;
+        @media (max-width: 960px) {
+            .panel {
+                grid-template-columns: 1fr;
             }
 
-            .header h1 {
-                font-size: 30px;
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .topbar-copy {
+                text-align: left;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .brand-title {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 680px) {
+            body {
+                padding: 18px;
+            }
+
+            .hero-card,
+            .upload-card {
+                padding: 26px;
             }
 
             .upload-box {
-                padding: 35px 20px;
+                padding: 32px 22px;
             }
 
-            .preview-grid {
+            .upload-title {
+                font-size: 24px;
+            }
 
-                grid-template-columns:
-                    repeat(auto-fill, minmax(140px, 1fr));
+            .upload-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
 
-    </style>
+    </style></style>
 
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="page-shell">
 
-        <div class="header">
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-title">Aszen</span>
+                <span class="brand-subtitle">technologies</span>
+            </div>
+            <div class="topbar-copy">
+                <h1>Dark, polished image upload flow for quick classification.</h1>
+                <p>
+                    Upload multiple photos, let the AI sort interior vs exterior, and download the results as a ZIP file once classification completes.
+                </p>
+            </div>
+        </header>
 
-            <h1>
-                AI Interior / Exterior Classifier
-            </h1>
+        <main class="panel">
 
-            <p>
-                Upload multiple images and let the AI
-                automatically classify them into
-                Interior and Exterior categories.
-            </p>
+            <section class="hero-card">
+                <div class="hero-copy">
+                    <span class="eyebrow">Image classification</span>
+                    <h2 class="hero-title">Smart interior / exterior sorter with a modern dark UI.</h2>
+                    <p class="hero-text">
+                        This interface is built to feel sleek and intuitive while keeping the upload experience fast and clear. Users select images, watch the preview, and get a download button once classification is ready.
+                    </p>
+                    <div class="features">
+                        <div class="feature-item"><span class="feature-dot"></span>Clean dark glass-style interface</div>
+                        <div class="feature-item"><span class="feature-dot"></span>Responsive layout for desktop and mobile</div>
+                        <div class="feature-item"><span class="feature-dot"></span>Preview selected files before upload</div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-badge">Upload, classify, download</div>
+                    <div class="hero-screenshot">
+                        <strong>Ready for images</strong>
+                        <span>Drop your files into the upload panel — the download button becomes active after processing.</span>
+                    </div>
+                </div>
+            </section>
 
-        </div>
-
-        <form
-            id="uploadForm"
-            action="/upload"
-            method="post"
-            enctype="multipart/form-data"
-        >
-
-            <label
-                class="upload-box"
-                id="dropArea"
-            >
-
-                <div class="upload-icon">
-                    📸
+            <section class="upload-card">
+                <div class="upload-header">
+                    <div>
+                        <h2>Upload images</h2>
+                        <p>Select one or more photos and let the classifier do the rest. The download button is enabled only after images are ready for ZIP export.</p>
+                    </div>
+                    <div class="preview-count" id="previewCount">0 files ready</div>
                 </div>
 
-                <div class="upload-title">
-                    Drag & Drop Images Here
-                </div>
+                <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                    <label class="upload-box" id="dropArea">
+                        <div class="upload-icon">📷</div>
+                        <div class="upload-title">Drag & Drop Images Here</div>
+                        <div class="upload-subtitle">or click to browse files</div>
+                        <input type="file" id="fileInput" name="files" multiple accept="image/*" />
+                    </label>
 
-                <div class="upload-subtitle">
-                    or click to browse files
-                </div>
+                    <div class="preview-section">
+                        <div class="preview-header">
+                            <div>
+                                <h2>Selected images</h2>
+                                <p>Preview your chosen files before uploading for classification.</p>
+                            </div>
+                            <div class="preview-count" id="previewCountMobile">0 files</div>
+                        </div>
+                        <div class="preview-grid" id="previewGrid"></div>
+                    </div>
 
-                <input
-                    type="file"
-                    id="fileInput"
-                    name="files"
-                    multiple
-                    accept="image/*"
-                />
+                    <div class="actions">
+                        <button type="submit" class="upload-btn" id="uploadBtn" disabled>
+                            Upload & Download ZIP
+                        </button>
+                    </div>
 
-            </label>
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <div>Processing your images and preparing the download package. Please keep this tab open.</div>
+                    </div>
+                </form>
+            </section>
 
-            <div class="preview-section">
-
-                <div class="preview-title">
-                    Selected Images
-                </div>
-
-                <div
-                    class="preview-grid"
-                    id="previewGrid"
-                ></div>
-
-            </div>
-
-            <div class="actions">
-
-                <button
-                    type="submit"
-                    class="upload-btn"
-                    id="uploadBtn"
-                    disabled
-                >
-
-                    Upload & Classify
-
-                </button>
-
-            </div>
-
-        </form>
-
-        <div
-            class="loading"
-            id="loading"
-        >
-
-            <div class="spinner"></div>
-
-            <div>
-                AI model is processing images...
-            </div>
-
-            <div class="footer-text">
-
-                Please wait while the ZIP package
-                is generated.
-
-            </div>
-
-        </div>
-
+        </main>
     </div>
 
     <script>
 
-        const fileInput =
-            document.getElementById('fileInput');
-
-        const previewGrid =
-            document.getElementById('previewGrid');
-
-        const uploadBtn =
-            document.getElementById('uploadBtn');
-
-        const uploadForm =
-            document.getElementById('uploadForm');
-
-        const loading =
-            document.getElementById('loading');
-
-        const dropArea =
-            document.getElementById('dropArea');
-
+        const fileInput = document.getElementById('fileInput');
+        const previewGrid = document.getElementById('previewGrid');
+        const previewCount = document.getElementById('previewCount');
+        const previewCountMobile = document.getElementById('previewCountMobile');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const uploadForm = document.getElementById('uploadForm');
+        const loading = document.getElementById('loading');
+        const dropArea = document.getElementById('dropArea');
         let selectedFiles = [];
 
-        fileInput.addEventListener(
-            'change',
-            (event) => {
+        function updateCounts() {
+            const count = selectedFiles.length;
+            const label = count === 1 ? '1 file ready' : `${count} files ready`;
+            previewCount.textContent = label;
+            previewCountMobile.textContent = count === 1 ? '1 file' : `${count} files`;
+        }
 
-                selectedFiles =
-                    [...event.target.files];
+        fileInput.addEventListener('change', (event) => {
+            selectedFiles = [...event.target.files];
+            renderPreview();
+        });
 
-                renderPreview();
-            }
-        );
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropArea.classList.add('dragover');
+        });
 
-        dropArea.addEventListener(
-            'dragover',
-            (e) => {
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('dragover');
+        });
 
-                e.preventDefault();
-
-                dropArea.classList.add(
-                    'dragover'
-                );
-            }
-        );
-
-        dropArea.addEventListener(
-            'dragleave',
-            () => {
-
-                dropArea.classList.remove(
-                    'dragover'
-                );
-            }
-        );
-
-        dropArea.addEventListener(
-            'drop',
-            (e) => {
-
-                e.preventDefault();
-
-                dropArea.classList.remove(
-                    'dragover'
-                );
-
-                selectedFiles =
-                    [...e.dataTransfer.files];
-
-                const dataTransfer = new DataTransfer();
-                selectedFiles.forEach((file) => {
-                    dataTransfer.items.add(file);
-                });
-                fileInput.files = dataTransfer.files;
-
-                renderPreview();
-            }
-        );
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('dragover');
+            selectedFiles = [...e.dataTransfer.files];
+            const dataTransfer = new DataTransfer();
+            selectedFiles.forEach((file) => {
+                dataTransfer.items.add(file);
+            });
+            fileInput.files = dataTransfer.files;
+            renderPreview();
+        });
 
         function renderPreview() {
-
             previewGrid.innerHTML = '';
-
-            uploadBtn.disabled =
-                selectedFiles.length === 0;
+            uploadBtn.disabled = selectedFiles.length === 0;
+            updateCounts();
 
             selectedFiles.forEach(file => {
-
-                const reader =
-                    new FileReader();
-
+                const reader = new FileReader();
                 reader.onload = function(e) {
-
-                    const card =
-                        document.createElement('div');
-
-                    card.className =
-                        'preview-card';
-
+                    const card = document.createElement('div');
+                    card.className = 'preview-card';
                     card.innerHTML = `
-                        <img src="${e.target.result}">
-                        <div class="preview-name">
-                            ${file.name}
-                        </div>
+                        <img src="${e.target.result}" alt="${file.name}">
+                        <div class="preview-name">${file.name}</div>
                     `;
-
                     previewGrid.appendChild(card);
-                }
-
+                };
                 reader.readAsDataURL(file);
             });
         }
 
-        uploadForm.addEventListener(
-            'submit',
-            () => {
-
-                loading.style.display = 'block';
-
-                uploadBtn.disabled = true;
-            }
-        );
+        uploadForm.addEventListener('submit', () => {
+            loading.style.display = 'block';
+            uploadBtn.disabled = true;
+        });
 
     </script>
 
