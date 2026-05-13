@@ -28,14 +28,13 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 25%),
-                        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.18), transparent 20%),
-                        #050816;
+            background: #050816;
             color: #e2e8f0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             padding: 30px;
+            overflow-x: hidden;
         }
 
         .page-shell {
@@ -112,19 +111,6 @@
             justify-content: space-between;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero-card::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -30%;
-            width: 320px;
-            height: 320px;
-            background: rgba(59, 130, 246, 0.16);
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: 0;
         }
 
         .hero-copy {
@@ -267,31 +253,36 @@
         }
 
         .upload-box {
-            border: 1px solid rgba(148, 163, 184, 0.28);
+            border: 1px solid rgba(59, 130, 246, 0.35);
             border-radius: 28px;
             padding: 42px 28px;
             text-align: center;
-            background: rgba(148, 163, 184, 0.05);
-            transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+            background: rgba(15, 23, 42, 0.75);
+            transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.08), 0 0 40px rgba(37, 99, 235, 0.12);
+        }
+
+        .upload-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            pointer-events: none;
+            background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 45%);
         }
 
         .upload-box:hover {
-            border-color: rgba(59, 130, 246, 0.75);
-            background: rgba(59, 130, 246, 0.12);
+            border-color: rgba(59, 130, 246, 0.9);
+            background: rgba(15, 23, 42, 0.85);
             transform: translateY(-1px);
         }
 
         .upload-box.dragover {
             border-color: #60a5fa;
-            background: rgba(59, 130, 246, 0.18);
-        }
-
-        .upload-box.dragover {
-            border-color: #60a5fa;
-            background: rgba(59, 130, 246, 0.18);
+            background: rgba(59, 130, 246, 0.24);
         }
 
         .upload-icon {
