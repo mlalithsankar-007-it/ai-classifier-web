@@ -28,14 +28,13 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 25%),
-                        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.18), transparent 20%),
-                        #050816;
+            background: #050816;
             color: #e2e8f0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             padding: 30px;
+            overflow-x: hidden;
         }
 
         .page-shell {
@@ -273,11 +272,6 @@
             border-color: rgba(59, 130, 246, 0.75);
             background: rgba(59, 130, 246, 0.12);
             transform: translateY(-1px);
-        }
-
-        .upload-box.dragover {
-            border-color: #60a5fa;
-            background: rgba(59, 130, 246, 0.18);
         }
 
         .upload-box.dragover {
