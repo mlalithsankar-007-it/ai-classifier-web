@@ -1,7 +1,8 @@
 from fastapi import FastAPI, UploadFile, File, Request
 from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates
-from fastapi.background import BackgroundTask
+
+from starlette.background import BackgroundTask
 
 from typing import List
 
